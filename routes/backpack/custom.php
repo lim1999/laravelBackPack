@@ -13,5 +13,5 @@ Route::group([
 ], function () { // custom admin routes
     Route::crud('zone', 'ZoneCrudController');
     Route::crud('shape', 'ShapeCrudController');
-    Route::crud('propertytype', 'PropertyTypeCrudController');
+    Route::crud('property-type', 'PropertyTypeCrudController');
 }); // this should be the absolute last line of this file
