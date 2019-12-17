@@ -14,4 +14,6 @@ Route::group([
     Route::crud('zone', 'ZoneCrudController');
     Route::crud('shape', 'ShapeCrudController');
     Route::crud('property-type', 'PropertyTypeCrudController');
+    Route::crud('property-status', 'PropertyStatusCrudController');
+    Route::crud('property', 'PropertyCrudController');
 }); // this should be the absolute last line of this file
