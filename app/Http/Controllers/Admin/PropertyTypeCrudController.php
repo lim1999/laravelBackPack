@@ -18,7 +18,14 @@ class PropertyTypeCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
+    protected function setupReorderOperation()
+    {
+        
+        $this->crud->set('reorder.label', 'name');
+        $this->crud->set('reorder.max_level', 2);
+    }
     public function setup()
     {
         $this->crud->setModel('App\Models\PropertyType');

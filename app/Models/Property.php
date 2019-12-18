@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Property;
 
-class PropertyType extends Model
+class Property extends Model
 {
     use CrudTrait;
 
@@ -16,13 +15,13 @@ class PropertyType extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'property_types';
+    protected $table = 'properties';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    //  protected $fillable = [
-    //      'parent_id','ltf','rgt','depth'
-    //  ];
+     protected $fillable = [
+       'name','property_type_id','rent_price'   
+     ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -37,9 +36,17 @@ class PropertyType extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function type()
-    {
-        return $this->hasMany(\App\Models\Property::class, 'property_type_id');
+    public function propertyType(){
+        return $this->belongsTo(\App\Models\PropertyType::class,'property_type_id');
+    }
+    public function propertyStatus(){
+        return $this->belongsTo(\App\Models\PropertyStatus::class,'property_status_id');
+    }
+    public function shape(){
+        return $this->belongsTo(\App\Models\Shape::class,'shape_id');
+    }
+    public function zone(){
+        return $this->belongsTo(\App\Models\Zone::class,'zone_id');
     }
     /*
     |--------------------------------------------------------------------------
